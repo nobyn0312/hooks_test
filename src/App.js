@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button';
+import  './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const [count,setCount] =useState(0);
+  useEffect(()=>{
+    console.log(`useEffect発火`)
+  })
+
+  return <div className="App">
+    <h1>useEffect</h1>
+    <p>{count}</p>
+    <Button onClick={()=>setCount(count +1)}>＋</Button>
+    <Button onClick={()=>setCount(count -1)}>−</Button>
+  </div>;
+};
 
 export default App;
